@@ -1,0 +1,14 @@
+h1. Core Generators
+
+h2. Description
+
+Scaffold generator, perfect for a new app. It features pagination, search, sort, and it's based on lots of known rubygems. 
+
+* inherited_resources
+* simple_form
+* will_paginate
+
+
+h2. Disclaimer. 
+
+It's very opinionated. This is how use it, so it may not suit your taste. 
