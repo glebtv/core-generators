@@ -1,3 +1,5 @@
+require 'core/inherited_resource_controller'
+
 module Core
-  # Your code goes here...
+
 end
