@@ -6,11 +6,11 @@ Gem::Specification.new do |s|
   s.name        = "core-generators"
   s.version     = Core::VERSION
   s.platform    = Gem::Platform::RUBY
-  s.authors     = ["TODO: Write your name"]
-  s.email       = ["TODO: Write your email address"]
+  s.authors     = ["lucasefe"]
+  s.email       = ["lucasefe@gmail.com"]
   s.homepage    = ""
-  s.summary     = %q{TODO: Write a gem summary}
-  s.description = %q{TODO: Write a gem description}
+  s.summary     = %q{core generators used by me}
+  s.description = %q{core generators used by me}
 
   s.rubyforge_project = "core-generators"
 

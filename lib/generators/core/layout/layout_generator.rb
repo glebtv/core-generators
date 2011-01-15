@@ -1,8 +1,16 @@
 require 'rails/generators/named_base'
 
-class Core::LayoutGenerator < Rails::Generators::NamedBase
-
+class Core::LayoutGenerator < Rails::Generators::Base
+  attr_accessor :file_name
+  
   source_root File.expand_path('../templates', __FILE__)
+  
+  argument :name, :default => 'application'
+  
+  def initialize(*args, &block)
+    super
+    @file_name = name
+  end
   
   def copy_layout_file
     template "views/#{view_language}/layout.html.#{view_language}", "app/views/layouts/#{name}.html.#{view_language}"
@@ -18,11 +26,6 @@ class Core::LayoutGenerator < Rails::Generators::NamedBase
   
   def copy_buttons
     directory "images", "public/images"
-  end
-  
-  def copy_locale_file
-    copy_file "locales/core.en.yml", "config/locales/core.en.yml"
-    copy_file "locales/core.es.yml", "config/locales/core.es.yml"
   end
   
   def install_haml_and_rails
