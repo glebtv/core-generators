@@ -114,7 +114,7 @@ INDEX
   end
   
   def install_simple_form_customizations
-    initializer 'load_simple_form_custom', 'require "simple_form_custom"'
+    initializer 'load_simple_form_custom.rb', 'require "simple_form_custom"'
     copy_file 'simple_form_custom.rb', 'lib/simple_form_custom.rb'
   end
   
