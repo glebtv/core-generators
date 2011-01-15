@@ -1,0 +1,17 @@
+development: &non_production_settings
+  app_name: Application
+  admin_email: admin@example.com
+  no_reply_email: no-reply@example.com
+  default_password: "123456"
+  
+test: &test_settings
+  <<: *non_production_settings
+
+cucumber:
+  <<: *test_settings
+  
+staging:
+  <<: *non_production_settings
+  
+production:
+  <<: *non_production_settings
