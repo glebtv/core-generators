@@ -1,0 +1,15 @@
+es:
+  core:
+    new: "New"
+    back: "Back"
+    edit: "Edit"
+    save: "Save"
+    update: "Update"
+    show: "Show"
+    delete: "Delete"
+    join: "Join"
+    join-button: "Yes, sign me in!"
+    no-button: "No"
+    cancel: "Cancel"
+    confirm: "Are you sure?"
+    

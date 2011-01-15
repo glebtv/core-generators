@@ -1,0 +1,14 @@
+- if content_for?(:actions) 
+  .block
+    %h3 Actions
+    = yield(:actions)
+    
+- if content_for?(:search) 
+  .block.notice
+    %h3
+      Search
+    .content
+      %p= yield(:search)
+  
+- if content_for?(:extra)
+  = yield(:extra)

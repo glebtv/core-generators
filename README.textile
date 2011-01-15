@@ -2,11 +2,17 @@ h1. Core Generators
 
 h2. Description
 
-Scaffold generator, perfect for a new app. It features pagination, search, sort, and it's based on lots of known rubygems. 
+Scaffold generator, perfect for a new Rails 3 app. It features pagination, search, sort, and it's based on lots of known rubygems. 
 
 * inherited_resources
+* show_for
 * simple_form
 * will_paginate
+* haml
+* web-app-theme
+* meta-search
+
+* nifty-generators (by Ryan bates) (totally ripped off)
 
 
 h2. Disclaimer. 
