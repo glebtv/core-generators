@@ -1,0 +1,19 @@
+.block
+  .content
+    .inner
+      = show_for @<%= singular_name %> do |s|
+    <%- attributes.each do |attribute| -%>
+        = s.<%= attribute.reference? ? :association : :attribute %> :<%= attribute.name %>
+    <%- end -%>
+
+      .wat-cf
+        = link_to edit_resource_path(@<%= singular_name %>), :class => "button" do
+          = image_tag "buttons/edit.png", :alt => t("core.edit")
+          = t "core.edit"
+        = link_to resource_path(@<%= singular_name %>), :method => "delete", :class => "button", :confirm => t("core.confirm") do
+          = image_tag "buttons/cross.png", :alt => t("core.delete")
+          = t "core.delete"
+
+- sidebar do    
+  - navigation_list do
+    - action_links_for_current_action

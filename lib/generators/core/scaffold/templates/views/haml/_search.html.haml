@@ -1,0 +1,7 @@
+= form_for @search, :url => collection_path, :html => { :method => :get, :class => 'search' } do |f|
+<%- for attribute in attributes -%>
+  %p
+    = f.label :<%= attribute.name %>
+    = f.text_field :<%= attribute.name %>_<%= %w(string text).include?(attribute.type.to_s) ? "contains" : 'equals' %>
+<%- end -%>
+  = f.submit

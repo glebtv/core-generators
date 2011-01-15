@@ -1,0 +1,25 @@
+#results
+  %table.table
+    %tr
+      %th.first
+    <%- for attribute in attributes -%>
+      %th= sort_link @search, :<%= attribute.name %>, t("activerecord.attributes.<%= singular_name %>.<%= attribute.name %>", :default => t("activerecord.labels.<%= attribute.name %>", :default => "<%= attribute.human_name %>"))
+    <%- end -%>
+      %th
+        .right #{pluralize(@search.count, "<%= singular_name.humanize %>")} found
+    - <%= plural_name %>.each do |<%= singular_name %>|
+      %tr{ :class => cycle("odd", "even") }
+        %td
+      <%- for attribute in attributes -%>
+        %td= <%= singular_name %>.<%= attribute.name %>
+      <%- end -%>
+        %td.last
+          = link_to t("core.show"), resource_path(<%= singular_name %>)
+          |
+          = link_to t("core.edit"), edit_resource_path(<%= singular_name %>)
+          |
+          = link_to t("core.delete"), resource_path(<%= singular_name %>), :method => :delete, :confirm => t("core.confirm")
+      
+  .actions-bar.wat-cf
+    .actions
+      = will_paginate <%= plural_name %>

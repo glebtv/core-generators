@@ -1,0 +1,13 @@
+= simple_form_for(@<%= singular_name %>, :html => { :class => :form } ) do |f|
+  .inputs
+  <%- attributes.each do |attribute| -%>
+    = f.<%= attribute.reference? ? :association : :input %> :<%= attribute.name %>
+  <%- end -%>
+  
+  .group.navform.wat-cf
+    %button.button{ :type => 'submit' }
+      = image_tag "buttons/tick.png", :alt => t("core.save")
+      = t "core.save"
+    = link_to((@<%= singular_name %>.new_record? ? collection_path : resource_path(@<%= singular_name %>)), :class => "button") do
+      = image_tag "buttons/cross.png", :alt => t("core.cancel")
+      = t "core.cancel"

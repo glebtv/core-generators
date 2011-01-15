@@ -1,0 +1,8 @@
+.block
+  - content_block '<%= plural_name.humanize %>' do
+    = render :partial => '<%= controller_file_name %>', :locals => { :<%= controller_file_name %> => @<%= controller_file_name %> }
+
+- sidebar do    
+  - navigation_list do
+    - action_links_for_current_action
+  - content_for :search , render('search')

@@ -1,0 +1,11 @@
+.block
+  .content
+    %h2.title
+      = t "core.edit"
+      <%= singular_name.pluralize %>  
+    .inner
+      = render 'form'
+      
+- sidebar do    
+  - navigation_list do
+    - action_links_for_current_action

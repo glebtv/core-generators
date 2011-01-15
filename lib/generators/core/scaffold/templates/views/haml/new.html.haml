@@ -1,0 +1,12 @@
+.block
+
+  .content
+    %h2.title
+      = t "core.new"
+      <%= singular_name.humanize %>
+    .inner
+      = render 'form'
+
+- sidebar do    
+  - navigation_list do
+    - action_links_for_current_action
