@@ -14,6 +14,13 @@ Scaffold generator, perfect for a new Rails 3 app. It features pagination, searc
 
 * nifty-generators (by Ryan bates) (totally ripped off)
 
+h2. Instructions
+
+* create your app
+* add this gem to your Gemfile.
+* run: rails generate core:installer
+* run: rails generate core:layout for the first layout
+* run: rails generate core:scaffold MODEL attributes:types actions for each resource, 
 
 h2. Disclaimer. 
 
