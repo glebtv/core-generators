@@ -12,4 +12,6 @@ es:
     no-button: "No"
     cancel: "Cancel"
     confirm: "Are you sure?"
-    
+    home: "Home"
+    logout: "Logout"
+    profile: "Profile"
