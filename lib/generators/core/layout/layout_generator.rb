@@ -28,12 +28,6 @@ class Core::LayoutGenerator < Rails::Generators::Base
     directory "images", "public/images"
   end
   
-  def install_haml_and_rails
-    gem 'haml-rails'
-    initializer 'haml_sass.rb', 
-      'Sass::Plugin.options[:template_location] = File.join([Rails.root, "app", "stylesheets"])'
-  end
-  
   def copy_static_files
     directory "stylesheets", "app/stylesheets/#{file_name}"
   end

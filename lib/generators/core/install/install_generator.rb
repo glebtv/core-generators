@@ -94,6 +94,20 @@ tmp/**/*
     gsub_file 'config/application.rb', /(< Rails::Application.*)/ , "\\1\n    config.logger = Logger.new(\"#{log_path}\", 50, 1048576)"    
   end
   
+  def add_default_root_page
+    generate 'controller Home index'
+    create_file 'app/views/home/index.html.haml', <<-INDEX
+Welcome, change me, please. 
+INDEX
+    route "root :to => 'home#index'"
+  end
+  
+  def install_haml_and_rails
+    gem 'haml-rails'
+    initializer 'haml_sass.rb', 
+      'Sass::Plugin.options[:template_location] = File.join([Rails.root, "app", "stylesheets"])'
+  end
+  
   private
   
   def with_ssl_fix_for_jquery_rails 
