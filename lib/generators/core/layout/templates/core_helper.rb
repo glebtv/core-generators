@@ -65,6 +65,19 @@ module CoreHelper
     haml_tag :li, link
   end
   
+  def toggle_box(title, collapsed = true)    
+    haml_tag :div, :class => 'toggle' do
+      haml_tag :h2 do
+        haml_concat title
+        haml_tag "span.small.expanded-link", "[view]", (collapsed ? {} : { :class => 'hide' } )
+        haml_tag "span.small.collapsed-link", "[hide]", (collapsed ? { :class => 'hide' } : {} )
+      end
+      haml_tag ".content", (collapsed ? { :class => 'hide' } : {} ) do
+        yield
+      end
+    end
+  end
+  
   def url_for_name(name)
     case name
     when 'new' then new_resource_path

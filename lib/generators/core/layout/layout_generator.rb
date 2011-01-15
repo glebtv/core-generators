@@ -30,6 +30,7 @@ class Core::LayoutGenerator < Rails::Generators::Base
   
   def copy_static_files
     directory "stylesheets", "app/stylesheets/#{file_name}"
+    copy_file 'core.js', "public/javascripts/core.js"
   end
   
   private

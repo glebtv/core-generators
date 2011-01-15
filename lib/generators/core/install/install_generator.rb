@@ -82,10 +82,11 @@ tmp/**/*
     git :commit => '-m "Adding ignore file".'
   end
 
-  def run_generators
+  def run_generators_and_fetch_resources
     with_ssl_fix_for_jquery_rails do
       generate 'rspec:install'
       generate 'jquery:install --ui'
+      run "curl -0 https://github.com/malsup/form/raw/master/jquery.form.js > public/javascripts/jquery.form.js "
     end
   end
   
