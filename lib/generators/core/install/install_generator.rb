@@ -86,6 +86,10 @@ tmp/**/*
     with_ssl_fix_for_jquery_rails do
       generate 'rspec:install'
       generate 'jquery:install --ui'
+      generate 'steak:install'
+      generate 'simple_form:install'
+      generate 'show_for:install'
+      generate 'navigation_config'
       run "curl -0 https://github.com/malsup/form/raw/master/jquery.form.js > public/javascripts/jquery.form.js "
     end
   end
