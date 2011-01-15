@@ -57,9 +57,10 @@ class Core::ScaffoldGenerator < Rails::Generators::NamedBase
   
   def add_resource_route
     return if options[:actions].present?
-    route_config =  class_path.collect{|namespace| "namespace :#{namespace} do " }.join(" ")
-    route_config << "resources :#{file_name.pluralize}"
-    route_config << " end" * class_path.size
+    route_config =  class_path.collect{|namespace| "namespace :#{namespace} do" }.join("\n ")
+    route_config << "\n"
+    route_config << ("  " * (class_path.size + 1 )+ "resources :#{file_name.pluralize}\n")
+    route_config << "  end\n" * class_path.size
     route route_config
   end
 
