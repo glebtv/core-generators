@@ -112,6 +112,11 @@ INDEX
     copy_file("bootstrap.rake", 'lib/tasks/bootstrap.rake')
   end
   
+  def install_simple_form_customizations
+    initializer 'load_simple_form_custom', 'require "simple_form_custom"'
+    copy_file 'simple_form_custom.rb', 'lib/simple_form_custom.rb'
+  end
+  
   private
   
   def with_ssl_fix_for_jquery_rails 
