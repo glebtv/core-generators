@@ -2,9 +2,9 @@
 %html
   %head
     %title=APP_CONFIG.app_name
-    = stylesheet_link_tag "<%= file_name %>/base", "<%= file_name %>/style", "<%= file_name %>/override",
+    = stylesheet_link_tag "<%= file_name %>/base", "<%= file_name %>/style", "<%= file_name %>/override"
     = javascript_include_tag :defaults, 'jquery.form','core', :cache => true
-    = csrf_meta_tag :cache => true
+    = csrf_meta_tag
   %body
     #container
       #header
@@ -18,9 +18,7 @@
               %a.logout{:href => "/logout"}= t("core.logout", :default => "Logout")
         
         #main-navigation
-          %ul.wat-cf
-            %li
-              %a{:href => "#"}= t("core.home", :default => "Home")
+          = render_navigation
 
       #wrapper.wat-cf
         - flashes

@@ -90,6 +90,7 @@ tmp/**/*
       generate 'simple_form:install'
       generate 'show_for:install'
       generate 'navigation_config'
+      copy_file 'simple_navigation.rb', "config/navigation.rb"
       run "curl -0 https://github.com/malsup/form/raw/master/jquery.form.js > public/javascripts/jquery.form.js "
     end
   end
