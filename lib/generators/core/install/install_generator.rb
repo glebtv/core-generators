@@ -108,6 +108,10 @@ INDEX
       'Sass::Plugin.options[:template_location] = File.join([Rails.root, "app", "stylesheets"])'
   end
   
+  def install_rake_tasks
+    copy_file("bootstrap.rake", 'lib/tasks/bootstrap.rake')
+  end
+  
   private
   
   def with_ssl_fix_for_jquery_rails 
