@@ -56,12 +56,12 @@ module CoreHelper
   
   def action_link_to(name, url = nil)
     if crud_actions.include?(name)
-      resource_name = resource_class.human_name.titleize
+      resource_name = resource_class.human_name
       resource_name = resource_name.pluralize if name == "list"
     end
     
     url ||= url_for_name(name)
-    link = link_to(t("web-app-theme.#{name}" , :default => "#{name.humanize} #{resource_name}"), url)
+    link = link_to(t("core.#{name}" , :default => "#{name.humanize} #{resource_name}"), url)
     haml_tag :li, link
   end
   

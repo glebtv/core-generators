@@ -1,7 +1,7 @@
 !!!
 %html
   %head
-    %title Application
+    %title=APP_CONFIG.app_name
     = csrf_meta_tag
     = stylesheet_link_tag "<%= file_name %>/base", "<%= file_name %>/style", "<%= file_name %>/override", :cache => true
   %body
@@ -12,16 +12,14 @@
         #user-navigation
           %ul.wat-cf
             %li
-              %a{:href => "#"}= t("web-app-theme.profile", :default => "Profile")
+              %a{:href => "#"}= t("core.profile", :default => "Profile")
             %li
-              %a{:href => "#"}= t("web-app-theme.settings", :default => "Settings")
-            %li
-              %a.logout{:href => "/logout"}= t("web-app-theme.logout", :default => "Logout")
+              %a.logout{:href => "/logout"}= t("core.logout", :default => "Logout")
         
         #main-navigation
           %ul.wat-cf
             %li
-              %a{:href => "#"}= t("web-app-theme.home", :default => "Home")
+              %a{:href => "#"}= t("core.home", :default => "Home")
 
       #wrapper.wat-cf
         - flashes
@@ -32,7 +30,7 @@
           #footer
             .block
               %p
-                Copyright &copy; #{Time.now.year} Web App.
+                Copyright &copy; #{Time.now.year} #{APP_CONFIG.app_name}.
         #sidebar
           = yield :sidebar
           
