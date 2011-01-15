@@ -24,4 +24,4 @@ h2. Instructions
 
 h2. Disclaimer. 
 
-It's very opinionated. This is how use it, so it may not suit your taste. 
+It's very opinionated. This is how I use it, so it may not be of your taste. 
