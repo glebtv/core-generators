@@ -16,11 +16,35 @@ Scaffold generator, perfect for a new Rails 3 app. It features pagination, searc
 
 h2. Instructions
 
-* create your app
-* add this gem to your Gemfile.
-* run: rails generate core:installer
-* run: rails generate core:layout for the first layout
-* run: rails generate core:scaffold MODEL attributes:types actions for each resource, 
+h3. Create your app
+
+<pre>
+rails new APP_NAME
+</pre>
+
+h3. Configure Gemfile dependency
+
+<pre>
+gem 'core-generators', :group => :development
+</pre>
+
+h3. Run Core Installer Generator
+
+<pre>
+rails generate core:installer  
+</pre>
+
+h3. Run Core Installer Layout
+
+<pre>
+rails generate core:layout LAYOUT_NAME
+</pre> 
+
+h3. Run Core Installer Scaffold
+
+<pre>
+rails generate core:scaffold MODEL attributes:types actions
+</pre>
 
 h2. Disclaimer. 
 
