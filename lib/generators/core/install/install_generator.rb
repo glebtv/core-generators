@@ -81,21 +81,28 @@ tmp/**/*
     git :add => '.gitignore'
     git :commit => '-m "Adding ignore file".'
   end
-  
-  def fix_for_jquery_rails
-    initializer '002_fixes.rb', <<-FIX
-require 'openssl'
-OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
-    FIX
-  end
 
   def run_generators
-    generate 'rspec:install'
-    generate 'jquery:install --ui'
+    with_ssl_fix_for_jquery_rails do
+      generate 'rspec:install'
+      generate 'jquery:install --ui'
+    end
   end
   
   def install_log_rotator
     log_path = '#{Rails.root}/log/#{Rails.env}.log'
-    gsub_file 'config/application.rb', /(< Rails::Application.*)/ , "\\1\n    config.logger = Logger.new(\"#{log_path}\", 50, 1048576)"
+    gsub_file 'config/application.rb', /(< Rails::Application.*)/ , "\\1\n    config.logger = Logger.new(\"#{log_path}\", 50, 1048576)"    
+  end
+  
+  private
+  
+  def with_ssl_fix_for_jquery_rails 
+    initializer '002_fixes.rb', <<-FIX
+      # Until the issue with github ssl is fixed.
+      require 'openssl'
+      OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
+    FIX
+    yield
+    run 'rm config/initializers/002_fixes.rb'
   end
 end
